@@ -4,20 +4,12 @@
 }
 
 html, body {
-	position: relative;
-	min-height: 100%;
 	height: 100%;
-	display: flex;
-  	flex-direction: column;
-}
-
-body > * {
-  flex-shrink: 0;
-
 }
 
 body {
 	background-size: 100% 100%;
+	margin: 0;
 }
 
 .favicon {
@@ -93,26 +85,13 @@ body {
 	opacity: 0.7;
 }
 
-#middle {
-	flex-grow: 1;
-	bottom: 0px;
-}
-
-.readMore {
-	background-color: #ffd699;
-	opacity: 0.7;
-	width: 55%;
-	float: left;
-}
-
 #loginForm {
-	float: left;
 	font-family: 'Kavoon', cursive;
 	align: center;
 	padding-top: 2%;
 	padding-left: 7%;
+	padding-right: 7%;
 	color: #FF6B00;
-	width: 37%;
 }
 
 input[type=email], input[type=password] {
@@ -130,16 +109,86 @@ input[type=password]:focus {
 
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
       margin: auto;
   }
 
-#myCarousel {
-	text-align: center;
-	padding-top: 10%;
-	flex-grow: 1;
-	bottom: 0;
+.badge {
+	font-size: 32px;
+	height: 140px;
+	width: 140px;
+	border-radius: 70px;
+	line-height: 140px;
+	-webkit-animation-name: badge; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 11s; /* Chrome, Safari, Opera */
+	animation-name: badge;
+	animation-duration: 11s;
+	animation-iteration-count: infinite;
 }
+
+.badge:hover {
+	font-size: 36px;
+	height: 150px;
+	width: 150px;
+	border-radius: 75px;
+	line-height: 150px;
+	-webkit-animation-name: badge; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 11s; /* Chrome, Safari, Opera */
+	animation-name: badge;
+	animation-duration: 11s;
+	animation-iteration-count: infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes badge {
+    0%   {background-color: #ff471a;}
+    10%  {background-color: #cc0000;}
+    20%  {background-color: #e6005c;}
+    30%  {background-color: #6600ff;}
+    40%  {background-color: #0000ff;}
+    50%  {background-color: #0099cc;}
+    60%  {background-color: #009999;}
+    70%  {background-color: #009933;}
+    80%  {background-color: #99cc00;}
+    90%  {background-color: #ff9900;} 
+    100% {background-color: #ff471a;} 
+}
+
+/* Standard syntax */
+@keyframes badge {
+    0%   {background-color: #ff471a;}
+    10%  {background-color: #cc0000;}
+    20%  {background-color: #e6005c;}
+    30%  {background-color: #6600ff;}
+    40%  {background-color: #0000ff;}
+    50%  {background-color: #0099cc;}
+    60%  {background-color: #009999;}
+    70%  {background-color: #009933;}
+    80%  {background-color: #99cc00;}
+    90%  {background-color: #ff9900;} 
+    100% {background-color: #ff471a;}
+}
+
+#jumbotron {
+	font-size: 130px;
+	font-family: 'Kavoon', cursive;
+	padding-left: 15%;
+}
+
+@media (max-width: 767px) {
+	#jumbotron {
+		padding-left: 0%;
+		font-size: 80px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#jumbotron {
+		padding-left: 7%;
+		font-size: 109px;
+	}
+}
+
+
 
 
 

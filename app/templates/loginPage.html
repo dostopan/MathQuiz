@@ -1,35 +1,37 @@
-<div>
-	<div class="jumbotron" id="jumbotron" style="background-color: #FF6B00; font-family:
-		fantasy; color: white; padding: 7.5%; position: relative;
-		margin-bottom: 0px;">
-		<div style="font-size: 130px; font-family: 'Kavoon', cursive;
-			padding-left: 15%;">
+<div class="">
+	<div class="w3-container w3-deep-orange" style="font-family: fantasy; 
+		color: white; padding: 7.5%; position: relative; margin-bottom: 0px;">
+		<div id="jumbotron">
 			<logo-thumbnail></logo-thumbnail>
 			<span style="padding-left: 30px">Pitagora</span>
 		</div>
 	</div>
 
-	<div id="middle">
-		<div class="readMore">
-
+	<div style="display: block">
+		<div class="w3-half">
 			
 			<div id="myCarousel" class="carousel slide" data-ride="carousel"
-			style="">
+			style="max-height: 350px;">
 			<!-- Indicators -->
 				<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
 				</ol>
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
 
 					<div class="item active">
-						<h1>Read more</h1>
+						<img src="img/home-img1.jpg" style="height: 100%; width: 100%; ">
 					</div>
 
 					<div class="item">
-						second slide...
+						<img src="img/home-img2.jpg" style="height: 100%; width: 100%;">
+					</div>
+
+					<div class="item">
+						<img src="img/home-img3.jpg" style="height: 100%; width: 100%;">
 					</div>
 
 				</div>
@@ -49,13 +51,26 @@
 			
 		</div>
 
-		<register-thumbnail></register-thumbnail>
+		<div class="w3-half" style="font-family: 'Kavoon', cursive;">
+			<div class="text-center w3-row">
+				<div class="w3-col m4">
+					<div class="btn badge w3-deep-orange">
+						Log in
+					</div>
+				</div>
+				<div class="w3-col m4">
+					<div>
+						Don't have account yet?
+					</div>
+				</div>
+				<div class="w3-col m4">
+					<div class="btn badge w3-deep-orange">
+						Register
+					</div>
+				</div>
+			</div>
+		</div>
 		
 	</div>
 
-	<footer style="position: absolute; bottom: 0; float: initial">
-		&copy All rights reserved.
-	</footer>
-	
 </div>
-
