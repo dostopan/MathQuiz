@@ -1,0 +1,151 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	position: relative;
+	min-height: 100%;
+	height: 100%;
+	display: flex;
+  	flex-direction: column;
+}
+
+body > * {
+  flex-shrink: 0;
+
+}
+
+body {
+	background-size: 100% 100%;
+}
+
+.favicon {
+	width: 110px;
+	height: 110px;
+	border-radius: 55px;
+	background: white;
+	padding-top: 54px;
+	padding-left: 5px;
+	float: left;
+	margin-top: 36px;
+}
+
+.oval {
+	width: 100px;
+	height: 30px;
+	background: #FF7102;
+	border-radius: 15px / 15px;
+	opacity: 0.7;
+	padding: 7px;
+	padding-left: 18px;
+	position: absolute;
+}
+
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid #FF7102;
+	margin-left: 30px;
+	margin-top: 30px;
+	opacity: 0.7;
+	position: absolute;
+}
+
+.circle {
+	width: 18px;
+	height: 18px;
+	border-radius: 9px;
+	background: white;
+	float: left;
+	margin-right: 5px;
+}
+
+.sm-rectangle {
+	width: 18px;
+	height: 30px;
+	background: #FF7102;
+	margin-top: -15px;
+	margin-left: 18px;
+	position: absolute;
+	opacity: 0.7;
+}
+
+.md-rectangle {
+	width: 18px;
+	height: 40px;
+	background: #FF7102;
+	margin-top: -25px;
+	margin-left: 41px;
+	position: absolute;
+	opacity: 0.7;
+}
+
+.lg-rectangle {
+	width: 18px;
+	height: 50px;
+	background: #FF7102;
+	margin-top: -35px;
+	margin-left: 64px;
+	position: absolute;
+	opacity: 0.7;
+}
+
+#middle {
+	flex-grow: 1;
+	bottom: 0px;
+}
+
+.readMore {
+	background-color: #ffd699;
+	opacity: 0.7;
+	width: 55%;
+	float: left;
+}
+
+#loginForm {
+	float: left;
+	font-family: 'Kavoon', cursive;
+	align: center;
+	padding-top: 2%;
+	padding-left: 7%;
+	color: #FF6B00;
+	width: 37%;
+}
+
+input[type=email], input[type=password] {
+	border-radius: 0px;
+	border: none;
+	box-shadow: inset 0 2px 4px 5px rgba(255,107,0,0.1);
+	padding: 22px;
+	border-radius: 30px;
+}
+
+input[type=email]:focus,
+input[type=password]:focus {
+	box-shadow: inset 0 2px 4px 5px rgba(255,107,0,0.25);
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+
+#myCarousel {
+	text-align: center;
+	padding-top: 10%;
+	flex-grow: 1;
+	bottom: 0;
+}
+
+
+
+
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
