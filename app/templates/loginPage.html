@@ -54,8 +54,9 @@
 		<div class="w3-half" style="font-family: 'Kavoon', cursive;">
 			<div class="text-center w3-row">
 				<div class="w3-col m4">
-					<div class="btn badge w3-deep-orange">
-						Log in
+					<div data-toggle="modal" data-target="#myLoginForm"
+						class="btn badge w3-deep-orange">
+							Log in
 					</div>
 				</div>
 				<div class="w3-col m4">
@@ -64,7 +65,8 @@
 					</div>
 				</div>
 				<div class="w3-col m4">
-					<div class="btn badge w3-deep-orange">
+					<div data-toggle="modal" data-target="#myRegisterForm"
+						class="btn badge w3-deep-orange">
 						Register
 					</div>
 				</div>
@@ -73,4 +75,167 @@
 		
 	</div>
 
+</div>
+
+
+<!-- Login form -->
+<div class="modal fade" id="myLoginForm" tabindex="-1" role="dialog" 
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header w3-deep-orange" style="color: white">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					Log in <span style="font-size: 40px; font-family: 'Kavoon', cursive;">
+					Pitagora</span>
+				</h4>
+			</div>
+
+			<!-- Modal Body -->
+			<div class="modal-body">
+
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label  class="col-sm-2 control-label" for="inputEmail3">
+							Email
+						</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="inputEmail3"
+								placeholder="Email"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="inputPassword3">
+							Password
+						</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="inputPassword3"
+								placeholder="Password"/>
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+			<!-- Modal Footer -->
+			<div class="modal-footer w3-deep-orange">
+				<div class="form-group">
+					<div class="col-sm-4">
+						<div class="checkbox" style="float: left">
+							<label>
+								<input type="checkbox"/> Remember me
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-4 col-sm-4">
+						<button type="submit" class="btn btn-default" style="margin-top: -10px">
+							<span style="color: #FF5722">Log in</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Register form -->
+<div class="modal fade" id="myRegisterForm" tabindex="-1" role="dialog" 
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header w3-deep-orange" style="color: white">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					Register to <span style="font-size: 40px; font-family: 'Kavoon', cursive;">
+					Pitagora</span>
+				</h4>
+			</div>
+
+			<!-- Modal Body -->
+			<div class="modal-body">
+
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label  class="col-sm-2 control-label" for="inputEmail3">
+							Email
+						</label>
+						<div class="col-sm-10">
+						<input type="email" class="form-control" id="inputEmail3"
+							placeholder="Email"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="inputPassword3">
+							Password
+						</label>
+						<div class="col-sm-10">
+						<input type="password" class="form-control" id="inputPassword3"
+							placeholder="Password"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							Admin?
+						</label>
+						<div class="col-sm-10">
+							<div class="checkbox" style="float: left">
+								<label>
+									<input type="checkbox"/> Yes
+								</label>
+								<label>
+									<input type="checkbox"/> No
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">
+							Date
+						</label>
+
+						<!-- Date Time Picker -->
+						<div class="col-sm-10">							
+							<div class="input-group date" id="datetimepicker1">
+								<input type="text" class="form-control input-group date"
+									id="datetimepicker1"/>
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar">
+									</span>
+								</span>
+							</div>
+						</div>
+						<script type="text/javascript">
+							$(function () {
+								$('#datetimepicker1').datetimepicker();
+							});
+						</script>
+
+					</div>
+				</form>
+
+			</div>
+
+			<!-- Modal Footer -->
+			<div class="modal-footer w3-deep-orange">
+				<div class="form-group">
+					<div class="col-sm-offset-8 col-sm-4">
+						<button type="submit" class="btn btn-default">
+							<span style="color: #FF5722">Register</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

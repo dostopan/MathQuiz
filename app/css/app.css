@@ -12,6 +12,10 @@ body {
 	margin: 0;
 }
 
+.no-padding {
+	padding: 0px 0px 0px 0px;
+}
+
 .favicon {
 	width: 110px;
 	height: 110px;
@@ -85,16 +89,17 @@ body {
 	opacity: 0.7;
 }
 
-#loginForm {
+#myLoginForm {
 	font-family: 'Kavoon', cursive;
-	align: center;
-	padding-top: 2%;
-	padding-left: 7%;
-	padding-right: 7%;
 	color: #FF6B00;
 }
 
-input[type=email], input[type=password] {
+#myRegisterForm {
+	font-family: 'Kavoon', cursive;
+	color: #FF6B00;
+}
+
+input[type=email], input[type=password], input[type=text] {
 	border-radius: 0px;
 	border: none;
 	box-shadow: inset 0 2px 4px 5px rgba(255,107,0,0.1);
@@ -103,7 +108,8 @@ input[type=email], input[type=password] {
 }
 
 input[type=email]:focus,
-input[type=password]:focus {
+input[type=password]:focus,
+input[type=text] {
 	box-shadow: inset 0 2px 4px 5px rgba(255,107,0,0.25);
 }
 
