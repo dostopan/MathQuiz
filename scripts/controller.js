@@ -15,5 +15,26 @@ module.exports.saveUser = function(req, res) {
 		console.log('User saved successfully.');
 		res.json({ success: true});
 	});
+}
 
+module.exports.loginUser = function(req, res) {
+	var data = req.body;
+	var user = User.findOne({ email: data.email });
+	user.save(function(err) {
+		if (err) throw err;
+
+		res.json({ success: true});
+	});
+}
+
+module.exports.getAllUsers = function(req, res) {
+	User.find({}, function(err, users) {
+	var userMap = {};
+
+	users.forEach(function(user) {
+		userMap[user._id] = user;
+	});
+	res.setHeader('Content-Type', 'application/json');
+	res.send(userMap);
+	});
 }

@@ -4,15 +4,14 @@ var mongoose = require('mongoose')
 var usersSchema = new mongoose.Schema({
 	email : {
 		type : String,
-		required : true
+		required : true,
+		unique : true
 	},
 	password : String,
 	admin : Boolean,
 	hash : String,
 	salt : String,
-	joined : { 
-		type : Date
-	}
+	joined :  Date
 });
 
 var User = mongoose.model('User', usersSchema);

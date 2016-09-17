@@ -12,7 +12,18 @@ var pitagoraApp = angular.module("pitagoraApp", ["ngRoute", "ngResource"])
 			{
 				templateUrl : "templates/loggedPage.html",
 				controller : "LoggedPageController",
-				authenticate: true
+				authenticate: true,
+				resolve: {
+					users: function(auth) {
+						return auth.getAllUsers().$promise;
+					}
+				}
+			});
+		$routeProvider.when("/Pitagora/allQuestions",
+			{
+				templateUrl : "templates/allQuestions.html",
+				controller : "AllQuestionsController",
+				authenticate : true
 			});
 		$locationProvider.html5Mode(
     		{

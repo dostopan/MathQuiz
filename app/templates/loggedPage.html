@@ -1,1 +1,81 @@
-Hello from logged Page!
+<div class="w3-deep-orange" style="min-height: 100%">
+	<ul class="w3-navbar">
+		<li><a href="javascript:void(0)" onmouseover="w3_open()">&#9776;</a></li>
+	</ul>
+
+	<nav class="w3-dropnav w3-card-2 w3-white" style="display:none" id="myDropnav"
+		onmouseleave="w3_close()">
+		<div class="w3-container">
+			<span onclick="w3_close()" class="w3-closebtn w3-xlarge" title="Close Menu">
+				&times;
+			</span>
+		</div>
+		<div class="w3-row-padding w3-padding-bottom">
+			<div class="w3-third nav-third">
+				<img src="../img/profile.jpg" style="width: 45px; height:45px; float: left">
+				<h3>
+					<span style="padding-left: 5px">Profile</span>
+				</h3>
+				<div class="w3-btn badge w3-ripple" style="height: 35px;
+					width: 70px; line-height: 35px; font-size: 16px;
+					padding: 0px 0px 0px 0px; margin-top: 10px">
+					Logout
+				</div>
+			</div>
+			<div class="w3-third nav-third">
+				<img src="../img/questions.jpg" style="height: 45px; width:45px;
+					border-radius: 22.5px; float: left">
+				<h3>
+					<span style="padding-left: 5px">QUESTIONS</span>
+				</h3>
+				<div style="padding-left: 55px">
+					<a href="/Pitagora/allQuestions">All questions</a>
+					<a href="#">New question</a>
+				</div>
+			</div>
+			<div class="w3-third nav-third">
+				<img src="../img/quizzes.jpg" style="height: 45px; width:45px;
+					border-radius: 22.5px; float: left">
+				<h3>
+					<span style="padding-left: 5px">QUIZZES</span>
+				</h3>
+				<div style="padding-left: 55px">
+					<a href="#">All quizzes</a>
+					<a href="#">New quiz</a>
+				</div>
+			</div>
+		</div>
+		<br>
+	</nav>
+
+	<div class="w3-container">
+		<h1 class="text-center" style="font-size: 60px; padding-top: 30px">
+			Win the 
+				<span class="appname" style="font-family: 'Kavoon', cursive; font-size: 80px">
+					Pitagora
+				</span>
+				<script>
+					$('.appname').textillate({
+						loop: true,
+						in: { effect: "pulse", shuffle: true },
+						out: { effect: "pulse", shuffle: true }
+					});
+				</script>
+			battle!
+			<img src="/img/cut_pehar.jpg">
+		</h1>
+		<h3 style="padding-left: 5%; padding-top: 15px">
+			For more check out &#9776; on top-left corner of the page.
+		</h3>
+		
+	</div>
+</div>
+
+<script>
+function w3_open() {
+	$("#myDropnav").slideDown("slow");
+}
+function w3_close() {
+	$("#myDropnav").slideUp("slow");
+}
+</script>

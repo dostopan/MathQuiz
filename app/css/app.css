@@ -120,10 +120,10 @@ input[type=text] {
 
 .badge {
 	font-size: 32px;
-	height: 140px;
-	width: 140px;
-	border-radius: 70px;
-	line-height: 140px;
+	height: 80px;
+	width: 230px;
+	border-radius: 0px;
+	line-height: 80px;
 	-webkit-animation-name: badge; /* Chrome, Safari, Opera */
 	-webkit-animation-duration: 11s; /* Chrome, Safari, Opera */
 	animation-name: badge;
@@ -133,10 +133,10 @@ input[type=text] {
 
 .badge:hover {
 	font-size: 36px;
-	height: 150px;
-	width: 150px;
-	border-radius: 75px;
-	line-height: 150px;
+	height: 90px;
+	width: 240px;
+	border-radius: 0px;
+	line-height: 90px;
 	-webkit-animation-name: badge; /* Chrome, Safari, Opera */
 	-webkit-animation-duration: 11s; /* Chrome, Safari, Opera */
 	animation-name: badge;
@@ -192,6 +192,28 @@ input[type=text] {
 		padding-left: 7%;
 		font-size: 109px;
 	}
+}
+
+@media (max-width: 600px) {
+	.nav-third {
+		margin-bottom: 15px;
+	}
+}
+
+.horizontal {
+  animation: horizontal_9469 2.72s ease infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes horizontal_9469 {
+  0% { transform:translate(0,0) }
+  4.41177% { transform:translate(5px,0) }
+  8.82353% { transform:translate(0,0) }
+  13.23529% { transform:translate(5px,0) }
+  17.64706% { transform:translate(0,0) }
+  22.05882% { transform:translate(5px,0) }
+  26.47059% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
 }
 
 

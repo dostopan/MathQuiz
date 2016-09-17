@@ -1,0 +1,17 @@
+<div class="w3-deep-orange w3-animate-right" style="min-height: 100%; position: relative">
+	<nav class="w3-sidenav w3-white badge" style="width: 50px; min-height: 320px;
+		line-height: 100%; font-size: 34px; right: 0; margin: 0; position: absolute;
+		top: 50%; transform: translate(0, -50%); font-family: 'Kavoon', cursive;">
+		<span id="foo">QUESTIONS</span>
+	</nav>
+	<nav class="w3-sidenav horizontal" style="width: 0px; height: 0px; border-top:
+		50px solid #FF5722; border-bottom: 50px solid #FF5722; 
+		border-right:50px solid #333333; font-size: 34px; color: white;
+		right: 50px; margin: 0; position: absolute; top: 43%; transform: translate(0, -50%)">
+		New
+	</nav>
+</div>
+
+<script>
+	$('#foo').html($('#foo').text().replace(/(.)/g,"$1<br />"));
+</script>

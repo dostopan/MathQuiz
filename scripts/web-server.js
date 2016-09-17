@@ -34,44 +34,15 @@ app.use(express.static('../app/'));
 
 app.use(morgan('dev'));
 
-app.get('/setup', function(req, res) {
-
-  // create a sample user
-  var nick = new User({ 
-    name: 'Nick Cerminara',
-    mail: 'nick@gmail.com', 
-    password: 'password',
-    admin: true 
-  });
-
-  // save the sample user
-  nick.save(function(err) {
-    if (err) throw err;
-
-    console.log('User saved successfully');
-    res.json({ success: true });
-  });
-});
-
 
 app.use('/api', apiRoutes);
 var controller = require('./controller');
 
-
 apiRoutes.post('/saveuser', controller.saveUser);
 
-
-apiRoutes.get('/users', function(req, res) {
-  User.find({}, function(err, users) {
-    res.json(users);
-  });
-});
-
-
-
-apiRoutes.get('/authenticate', function(req, res) {
+apiRoutes.post('/authenticate', function(req, res) {
 	User.findOne({
-		name: req.body.name
+		email : req.body.email
 	}, function(err, user) {
 		if (err) throw err;
 		if (!user) {
@@ -81,10 +52,10 @@ apiRoutes.get('/authenticate', function(req, res) {
 				res.json({ success: false, message: 'Authentication failed. Wrong password.'});
 			} else {
 					var token = jwt.sign(user, app.get('superSecret'), {
-						expiresInMinutes: 1440
+						expiresIn: 86400
 					});
 
-					res.json({
+					res.status(200).json({
 						success: true,
 						message: 'Enjoy your token!',
 						token: token
@@ -94,6 +65,9 @@ apiRoutes.get('/authenticate', function(req, res) {
 		
 		});
 	});
+
+
+apiRoutes.get('/usersList', controller.getAllUsers);
 
 //kontrolna ruta za autentifikaciju
 apiRoutes.use(function(req, res, next) {
@@ -122,14 +96,18 @@ apiRoutes.use(function(req, res, next) {
 	}
 });
 
-
-
 var path = require('path');
 var rootPath = path.normalize(__dirname + '/../');
 console.log(__dirname);
 
 app.use('/', function(req, res){
 	res.sendFile(rootPath + '/app/index.html');
+});
+
+apiRoutes.post('/loginuser', controller.loginUser);
+
+apiRoutes.get('/check', function(req, res) {
+	res.json(req.decoded);
 });
 
 

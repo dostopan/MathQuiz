@@ -14,15 +14,17 @@ pitagoraApp.factory('auth',
 				default:
 					throw 'Illegal base64url string.';
 			}
-			return window.atob(output);
+			return $window.atob(output);
 		}
 
 		function getClaimsFromToken() {
-			var token = $window.localStorage.token;
+			var token = localStorage.token;
+			console.log(token);
 			var user = {};
 			if (token !== 'undefined') {
 				var encoded = token.split('.')[1];
 				user = JSON.parse(urlBase64Decode(encoded));
+				console.log(user);
 			}
 			return user;
 		}
@@ -31,8 +33,14 @@ pitagoraApp.factory('auth',
 			register: function(user) {
 				return $resource('/api/saveuser').save(user);
 			},
-			login: function() {
-				return $resource('').save();
+			login: function(user) {
+				return $resource('/api/loginuser').save(user);
+			},
+			getCurrentUser: function() {
+				return currentUser;
+			},
+			getAllUsers: function() {
+				return $resource('/api/usersList').get();
 			},
 			getTokenClaims: getClaimsFromToken
 		}
