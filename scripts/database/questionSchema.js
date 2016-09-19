@@ -21,12 +21,12 @@ var questionsSchema = new mongoose.Schema({
 	},
 	duration : Number,
 	admin : {
-		type : Schema.Types.ObjectId,
+		type : String,
 		ref : 'User'
 	},
 	date : {
 		type : Date,
-		default : Date.now
+		default: Date.now
 	}
 });
 

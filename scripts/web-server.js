@@ -66,7 +66,8 @@ apiRoutes.post('/authenticate', function(req, res) {
 		});
 	});
 
-
+apiRoutes.post('/savequestion', controller.saveQuestion);
+apiRoutes.get('/questionList', controller.getAllQuestions);
 apiRoutes.get('/usersList', controller.getAllUsers);
 
 //kontrolna ruta za autentifikaciju

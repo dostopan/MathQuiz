@@ -42,6 +42,12 @@ pitagoraApp.factory('auth',
 			getAllUsers: function() {
 				return $resource('/api/usersList').get();
 			},
+			saveQuestion: function(question) {
+				return $resource('/api/savequestion').save(question);
+			},
+			getAllQuestions: function() {
+				return $resource('/api/questionList').get();
+			},
 			getTokenClaims: getClaimsFromToken
 		}
 	});

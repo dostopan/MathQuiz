@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 require('./database/userSchema.js');
 var User = mongoose.model('User');
+require('./database/questionSchema.js');
+var Question = mongoose.model('Question');
 
 module.exports.saveUser = function(req, res) {
 	var data = req.body; //poslao klijent
@@ -36,5 +38,31 @@ module.exports.getAllUsers = function(req, res) {
 	});
 	res.setHeader('Content-Type', 'application/json');
 	res.send(userMap);
+	});
+}
+
+module.exports.saveQuestion = function(req, res) {
+	var data = req.body;
+	console.log(data);
+
+	var question = new Question(data);
+
+	question.save(function(err) {
+		if (err) throw err;
+
+		console.log('Question saved successfully.');
+		res.json({ success: true});
+	});
+}
+
+module.exports.getAllQuestions = function(req, res) {
+	Question.find({}, function(err, questions) {
+	var questionMap = {};
+
+	questions.forEach(function(question) {
+		questionMap[question._id] = question;
+	});
+	res.setHeader('Content-Type', 'application/json');
+	res.send(questionMap);
 	});
 }
