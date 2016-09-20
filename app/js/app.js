@@ -25,6 +25,12 @@ var pitagoraApp = angular.module("pitagoraApp", ["ngRoute", "ngResource"])
 				controller : "AllQuestionsController",
 				authenticate : true
 			});
+		$routeProvider.when("/Pitagora/allQuizzes",
+			{
+				templateUrl : "templates/allQuizzes.html",
+				controller : "AllQuizzesController",
+				authenticate : true
+			});
 		$locationProvider.html5Mode(
     		{
         		enabled : true, 

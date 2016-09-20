@@ -1,12 +1,124 @@
 <div class="w3-deep-orange w3-animate-right" style="min-height: 100%; position: relative">
-	<nav class="w3-sidenav w3-white badge" style="width: 55px; min-height: 320px;
+
+	<nav class="navbar navbar-fixed-top w3-deep-orange">
+		<div>
+			<a class="navbar-brand w3-animate-right" href="/Pitagora/logged">
+				<img src="../favicon/favicon-32x32.png" style="border-radius: 32px;
+					float: left; margin-top: -6px">
+				<div class="appname" style="font-family: 'Kavoon', cursive;
+					font-size: 30px; float: left; padding-left: 3px">Pitagora</div>
+				<script>
+					$('.appname').textillate({
+						loop: true,
+						in: { effect: "pulse", shuffle: true },
+						out: { effect: "pulse", shuffle: true }
+					});
+				</script>
+			</a>
+			<style type="text/css">
+				.navbar-brand:hover {
+					color: white;
+					text-decoration: none;
+				}
+			</style>	
+		</div>
+
+		<div class="btn-group">
+			<button type="button" class="w3-deep-orange btn dropdown-toggle"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+				style="margin-top: 10px">
+					&#9776;
+			</button>
+			<div class="dropdown-menu" style="padding-bottom: 15px">
+				<div class="dropdown-header" style="margin-left: -5px; line-height: 30px">
+					<img src="../img/profile.jpg" style="height: 30px; width:30px;
+					border-radius: 15px; float: left">
+					<span style="padding-left: 5px; font-size: 15px;">PROFILE</span>				
+				</div>
+				<a class="dropdown-item" href="#" style="color: grey; padding-left: 50px">
+					Username</a>
+				<hr>
+				<div class="dropdown-header" style="margin-left: -5px; line-height: 30px">
+					<img src="../img/quizzes.jpg" style="height: 30px; width:33px;
+					border-radius: 15px; float: left">
+					<span style="padding-left: 5px; font-size: 15px;">QUIZZES</span>				
+				</div>
+				<a class="dropdown-item" href="/Pitagora/allQuizzes" style="color: grey;
+				 padding-left: 50px">
+					All quizzes</a>
+					<br>
+				<a class="dropdown-item" href="#" style="color: grey; padding-left: 50px">
+					New quiz</a>
+			</div>
+		</div>
+
+	</nav>
+
+
+	<div class="w3-accordion" style="width: 70%; margin: auto; padding-top: 80px">
+		<div ng-repeat="question in questions" style="margin-bottom: 1px;">
+			<button ng-click="toggleAccordion(question._id)" 
+				class="w3-btn-block w3-left-align question-well">
+				{{ question.question }}
+			</button>
+			<div id="{{ question._id }}" class="w3-accordion-content w3-container w3-light-grey">
+				<div class="row">
+					<div class="col-sm-3 text-right questionAttrs">Possible answers</div>
+					<div class="col-sm-6" style="font-family: 'Indie Flower', cursive;
+						font-size: 20px">{{ question.answers[0] }}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3 text-right questionAttrs">Right answer</div>
+					<div class="col-sm-6" style="font-family: 'Indie Flower', cursive;
+						font-size: 20px">{{ question.rightAnswer }}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3 text-right questionAttrs">Field</div>
+					<div class="col-sm-6" style="font-family: 'Indie Flower', cursive;
+						font-size: 20px">{{ question.fieldName }}</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-5 col-sm-3 text-right questionAttrs">Points</div>
+					<div class="col-xs-7 col-sm-6" style="font-family: 'Indie Flower', cursive;
+						font-size: 20px">{{ question.points }}</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-5 col-sm-3 text-right questionAttrs">Duration</div>
+					<div class="col-xs-7 col-sm-6" style="font-family: 'Indie Flower', cursive;
+						font-size: 20px">{{ question.duration }}</div>
+				</div>
+			</div>
+		</div>
+
+		<a data-toggle="modal" data-target="#newQuestionForm" 
+			style="font-size: 18px;	font-family: 'Kavoon', cursive; float: right;
+			margin-top: 10px">
+				<div class="newQuestion">New</div>
+				<script>
+					$('.newQuestion').textillate({
+						loop: true,
+						in: { effect: "pulse", shuffle: true },
+						out: { effect: "pulse", shuffle: true },
+						initialDelay: 1000
+					});
+				</script>
+				<style type="text/css">
+					.newQuestion:hover {
+						font-size: 22px;
+					}
+				</style>
+		</a>
+
+	</div>
+
+	
+	<!-- sidenav QUESTIONS (change colors) -->
+	<nav class="w3-white badge questionSidenav" style="width: 55px; min-height: 320px;
 		line-height: 100%; font-size: 34px; right: 0; margin: 0; position: absolute;
-		top: 50%; transform: translate(0, -50%); font-family: 'Kavoon', cursive;">
+		top: 50%; transform: translate(0, -50%); font-family: 'Kavoon', cursive;
+		max-height: 500px">
 		<span id="foo">QUESTIONS</span>
 	</nav>
-	<button data-toggle="modal" data-target="#newQuestionForm" class="btn">New</button>
-	
-	
 
 </div>
 
@@ -164,9 +276,6 @@
 <script>
 	$('#foo').html($('#foo').text().replace(/(.)/g,"$1<br />"));
 	$('#foo1').html($('#foo1').text().replace(/(.)/g,"$1<br />"));
-
-
-
 </script>
 
 <style type="text/css">

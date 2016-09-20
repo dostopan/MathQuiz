@@ -129,62 +129,6 @@ input[type=number]:focus {
       margin: auto;
   }
 
-.badge {
-	font-size: 32px;
-	height: 80px;
-	width: 230px;
-	border-radius: 0px;
-	line-height: 80px;
-	-webkit-animation-name: badge; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 11s; /* Chrome, Safari, Opera */
-	animation-name: badge;
-	animation-duration: 11s;
-	animation-iteration-count: infinite;
-}
-
-.badge:hover {
-	font-size: 36px;
-	height: 90px;
-	width: 240px;
-	border-radius: 0px;
-	line-height: 90px;
-	-webkit-animation-name: badge; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 11s; /* Chrome, Safari, Opera */
-	animation-name: badge;
-	animation-duration: 11s;
-	animation-iteration-count: infinite;
-}
-
-/* Chrome, Safari, Opera */
-@-webkit-keyframes badge {
-    0%   {background-color: #ff471a;}
-    10%  {background-color: #cc0000;}
-    20%  {background-color: #e6005c;}
-    30%  {background-color: #6600ff;}
-    40%  {background-color: #0000ff;}
-    50%  {background-color: #0099cc;}
-    60%  {background-color: #009999;}
-    70%  {background-color: #009933;}
-    80%  {background-color: #99cc00;}
-    90%  {background-color: #ff9900;} 
-    100% {background-color: #ff471a;} 
-}
-
-/* Standard syntax */
-@keyframes badge {
-    0%   {background-color: #ff471a;}
-    10%  {background-color: #cc0000;}
-    20%  {background-color: #e6005c;}
-    30%  {background-color: #6600ff;}
-    40%  {background-color: #0000ff;}
-    50%  {background-color: #0099cc;}
-    60%  {background-color: #009999;}
-    70%  {background-color: #009933;}
-    80%  {background-color: #99cc00;}
-    90%  {background-color: #ff9900;} 
-    100% {background-color: #ff471a;}
-}
-
 #jumbotron {
 	font-size: 130px;
 	font-family: 'Kavoon', cursive;
@@ -211,22 +155,31 @@ input[type=number]:focus {
 	}
 }
 
-.horizontal {
-  animation: horizontal_9469 2.72s ease infinite;
-  transform-origin: 50% 50%;
+.question-well {
+	background: #ffffff;
+	opacity: 0.4;
+	filter: alpha(opacity=40); /* For IE8 and earlier */
+	color: black;
+	border: none;
+	padding: 10px;
+	font-family: 'Indie Flower', cursive;
+	font-size: 20px
 }
 
-@keyframes horizontal_9469 {
-  0% { transform:translate(0,0) }
-  4.41177% { transform:translate(5px,0) }
-  8.82353% { transform:translate(0,0) }
-  13.23529% { transform:translate(5px,0) }
-  17.64706% { transform:translate(0,0) }
-  22.05882% { transform:translate(5px,0) }
-  26.47059% { transform:translate(0,0) }
-  100% { transform:translate(0,0) }
+.questionAttrs {
+	font-family: 'Indie Flower', cursive;
+	font-size: 20px;
+	font-weight: bold;
+	color: #FF5722;
 }
 
+@media (max-width: 767px) {
+	.questionAttrs {
+		text-align: left;
+	}
+}
+
+/* tooltip */
 [data-tip] {
 	position:relative;
 
@@ -272,6 +225,96 @@ input[type=number]:focus {
 [data-tip]:hover:after {
 	display:block;
 }
+
+
+/* animations */
+.badge {
+	font-size: 32px;
+	height: 80px;
+	width: 230px;
+	border-radius: 0px;
+	line-height: 80px;
+	-webkit-animation-name: badge; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 11s; /* Chrome, Safari, Opera */
+	animation-name: badge;
+	animation-duration: 11s;
+	animation-iteration-count: infinite;
+}
+
+.badge:hover {
+	font-size: 36px;
+	height: 90px;
+	width: 240px;
+	border-radius: 0px;
+	line-height: 90px;
+	-webkit-animation-name: badge; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 11s; /* Chrome, Safari, Opera */
+	animation-name: badge;
+	animation-duration: 11s;
+	animation-iteration-count: infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes badge {
+	0%   {background-color: #ff471a;}
+	10%  {background-color: #cc0000;}
+	20%  {background-color: #e6005c;}
+	30%  {background-color: #6600ff;}
+	40%  {background-color: #0000ff;}
+	50%  {background-color: #0099cc;}
+	60%  {background-color: #009999;}
+	70%  {background-color: #009933;}
+	80%  {background-color: #99cc00;}
+	90%  {background-color: #ff9900;} 
+	100% {background-color: #ff471a;} 
+	}
+
+/* Standard syntax */
+@keyframes badge {
+	0%   {background-color: #ff471a;}
+	10%  {background-color: #cc0000;}
+	20%  {background-color: #e6005c;}
+	30%  {background-color: #6600ff;}
+	40%  {background-color: #0000ff;}
+	50%  {background-color: #0099cc;}
+	60%  {background-color: #009999;}
+	70%  {background-color: #009933;}
+	80%  {background-color: #99cc00;}
+	90%  {background-color: #ff9900;} 
+	100% {background-color: #ff471a;}
+}
+
+.tada {
+	animation: tada_6570 3.5s linear infinite;
+	transform-origin: 50% 50%;
+}
+
+@keyframes tada_6570 {
+	0% { transform: scale(1) }
+	5.55556% { transform:scale(.9) rotate(-8deg) }
+	11.11111% { transform:scale(.9) rotate(-8deg) }
+	16.66667% { transform:scale(1.3) rotate(8deg) }
+	22.22222% { transform:scale(1.3) rotate(-8deg) }
+	27.77778% { transform:scale(1.3) rotate(8deg) }
+	33.33333% { transform:scale(1.3) rotate(-8deg) }
+	38.88889% { transform:scale(1.3) rotate(8deg) }
+	44.44444% { transform:scale(1) rotate(0) }
+	100% { transform:scale(1) rotate(0) }
+}
+
+.pulse {
+	animation: pulse_9745 4s linear infinite;
+	transform-origin: 50% 50%;
+}
+
+@keyframes pulse_9745 {
+	0% { transform: scale(1.1) }
+	25% { transform: scale(0.8) }
+	50% { transform: scale(1.1) }
+	100% { transform: scale(1.1) }
+}
+
+
 
 
 
