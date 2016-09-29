@@ -1,6 +1,6 @@
 'use strict';
 
-var pitagoraApp = angular.module("pitagoraApp", ["ngRoute", "ngResource", "angularModalService"])
+var pitagoraApp = angular.module("pitagoraApp", ["ngRoute", "ngResource", "angularModalService", "ngLoad"])
 	.config(function($routeProvider, $locationProvider, $httpProvider){
 		$routeProvider.when("/Pitagora",
 			{

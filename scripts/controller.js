@@ -88,3 +88,15 @@ module.exports.saveQuiz = function(req, res) {
 		res.json({ success: true });
 	});
 }
+
+module.exports.getAllQuizzes = function(req, res) {
+	Quiz.find({}, function(err, quizzes) {
+	var quizMap = {};
+
+	quizzes.forEach(function(quiz) {
+		quizMap[quiz._id] = quiz;
+	});
+	res.setHeader('Content-Type', 'application/json');
+	res.send(quizMap);
+	});
+}

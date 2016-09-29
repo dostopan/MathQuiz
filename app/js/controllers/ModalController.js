@@ -5,7 +5,11 @@ pitagoraApp.controller('ModalController', function($scope, close, auth, $locatio
 	$scope.submitQuestion = function(question) {
 		auth.saveQuestion(question).$promise.then(
 			function(response) {
-				$location.url('/Pitagora/allQuestions');
+				if (String($location.path().split("?")[0])=='/Pitagora/logged') {
+					$location.url('/Pitagora/allQuestions');
+				} else {
+					$location.url(String($location.path().split("?")[0]));
+				}				
 				$scope.question = {};
 			},
 			function(response){console.log('Something went wrong.');}

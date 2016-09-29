@@ -61,15 +61,23 @@
 		<span>QUIZZES</span>
 	</nav>
 
-	<!--<div class="quizCards">
+	<div class="quizCards" ng-repeat="quiz in quizzes">
 		<div class="w3-third" style="padding-right: 10px; padding-bottom: 10px">
 			<div class="w3-card-2">
 				<header class="w3-container w3-white">
-					<h1>Header</h1>
+					<h1 style="font-family: 'Kavoon', cursive; font-size: 25px;
+						color: #331400">
+						{{quiz.quizName}}
+					</h1>
 				</header>
 
 				<div class="w3-container">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<div class="row">
+						<div class="col-sm-3 text-right questionAttrs">Quiz questions</div>
+						<div hidden class="col-sm-6" style="font-family: 'Indie Flower', cursive;
+							font-size: 20px" id="{{ quiz._id }}">
+							{{ quiz.quizQuestions }}</div>
+						</div>
 				</div>
 
 				<footer class="w3-container w3-white" style="width: 100%">
@@ -77,7 +85,9 @@
 				</footer>
 			</div>
 		</div>
-	</div>-->
+	</div>
+
+
 	
 	<!-- sidenav QUESTIONS (change colors) -->
 	<nav class="w3-white badge sideNav" style="width: 55px; min-height: 250px;

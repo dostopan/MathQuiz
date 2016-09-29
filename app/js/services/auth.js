@@ -54,6 +54,9 @@ pitagoraApp.factory('auth',
 			saveQuiz: function(quiz) {
 				return $resource('/api/savequiz').save(quiz);
 			},
+			getAllQuizzes: function() {
+				return $resource('/api/quizList').get();
+			},
 			getTokenClaims: getClaimsFromToken
 		}
 	});

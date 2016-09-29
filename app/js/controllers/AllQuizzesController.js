@@ -1,6 +1,8 @@
 pitagoraApp.controller('AllQuizzesController',
 	function($rootScope, $scope, auth, $window, $location, ModalService) {
 
+		$scope.quizzes = auth.getAllQuizzes();
+
 		$scope.show = function() {
 			ModalService.showModal({
 				templateUrl: '/../../templates/directives/modal.html',

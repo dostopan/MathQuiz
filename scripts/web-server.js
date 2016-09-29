@@ -68,6 +68,7 @@ apiRoutes.post('/authenticate', function(req, res) {
 
 apiRoutes.post('/savequestion', controller.saveQuestion);
 apiRoutes.get('/questionList', controller.getAllQuestions);
+apiRoutes.get('/quizList', controller.getAllQuizzes);
 apiRoutes.post('/savequiz', controller.saveQuiz);
 apiRoutes.get('/usersList', controller.getAllUsers);
 apiRoutes.get('/usersList/:id', controller.getUserById);

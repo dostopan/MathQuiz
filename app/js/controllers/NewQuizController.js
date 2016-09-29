@@ -16,7 +16,6 @@ pitagoraApp.controller('NewQuizController',
 		$scope.submitQuiz = function(quiz) {
 			auth.saveQuiz(quiz).$promise.then(
 				function(response) {
-					console.log('Hello from saveQuiz.');
 					$location.url('/Pitagora/allQuizzes');
 				},
 				function(response){console.log('Something went wrong.');}
@@ -61,6 +60,7 @@ pitagoraApp.controller('NewQuizController',
 				$sideNav.show();
 				$topNav.hide();
 			}
+			console.log(String($location.path().split("?")[0]));
 
 			$window
 			.resize(resize)
