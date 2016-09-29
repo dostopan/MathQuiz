@@ -10,13 +10,14 @@ pitagoraApp.controller('LoginPageController',
 			};
 			auth.login(usersData).$promise.then(function(response) {
 				if(response.success) {
+					var token = $window.localStorage.getItem("token");
 					$window.localStorage.token = response.token;
 					$scope.tokenClaims = auth.getTokenClaims();
+					console.log(token);
 					$location.url('/Pitagora/logged');
 				} else {
 					console.log(response.message);
 				}
-
 			})
 		};
 
@@ -28,7 +29,6 @@ pitagoraApp.controller('LoginPageController',
 			}, function(response) {
 				console.log(response);
 			});
-			
 		};
 
 		$scope.token = $window.localStorage.token;

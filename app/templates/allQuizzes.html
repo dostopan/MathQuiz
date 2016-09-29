@@ -1,0 +1,123 @@
+<div class="w3-container w3-deep-orange w3-animate-left" style="min-height: 100%;
+	padding-bottom: 30px; position: relative">
+
+	<nav class="navbar navbar-fixed-top w3-deep-orange">
+		<div>
+			<a class="navbar-brand w3-animate-left" href="/Pitagora/logged">
+				<img src="../favicon/favicon-32x32.png" style="border-radius: 32px;
+					float: left; margin-top: -6px">
+				<div class="appname" style="font-family: 'Kavoon', cursive;
+					font-size: 30px; float: left; padding-left: 3px">Pitagora</div>
+				<script>
+					$('.appname').textillate({
+						loop: true,
+						in: { effect: "pulse", shuffle: true },
+						out: { effect: "pulse", shuffle: true }
+					});
+				</script>
+			</a>
+			<style type="text/css">
+				.navbar-brand:hover {
+					color: white;
+					text-decoration: none;
+				}
+			</style>	
+		</div>
+
+		<div class="btn-group contentBtn">
+			<button type="button" class="w3-deep-orange btn dropdown-toggle w3-animate-left"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+				style="margin-top: 10px">
+					&#9776;
+			</button>
+			<div class="dropdown-menu">
+				<div class="dropdown-header" style="margin-left: -5px; line-height: 30px">
+					<img src="../img/profile.jpg" style="height: 30px; width:30px;
+					border-radius: 15px; float: left">
+					<span style="padding-left: 5px; font-size: 15px;">PROFILE</span>				
+				</div>
+				<a class="dropdown-item" href="#" style="color: grey; padding-left: 50px">
+					Username</a>
+				<hr>
+				<div class="dropdown-header" style="margin-left: -5px; line-height: 30px">
+					<img src="../img/questions.jpg" style="height: 30px; width:33px;
+					border-radius: 15px; float: left">
+					<span style="padding-left: 5px; font-size: 15px;">QUESTIONS</span>				
+				</div>
+				<a class="dropdown-item" href="/Pitagora/allQuestions" style="color: grey;
+				 padding-left: 50px">
+					All questions</a>
+					<br>
+				<a class="dropdown-item" href ng-click="show()" style="color: grey; padding-left: 50px">
+					New question</a>
+			</div>
+		</div>
+
+	</nav>
+
+	<nav class="w3-white badge topNav" style="width: 100%; height: 55px;
+		line-height: 55px; font-size: 34px; position: fixed;
+		font-family: 'Kavoon', cursive; margin-top: 50px; margin-left: -16px">
+		<span>QUIZZES</span>
+	</nav>
+
+	<!--<div class="quizCards">
+		<div class="w3-third" style="padding-right: 10px; padding-bottom: 10px">
+			<div class="w3-card-2">
+				<header class="w3-container w3-white">
+					<h1>Header</h1>
+				</header>
+
+				<div class="w3-container">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+
+				<footer class="w3-container w3-white" style="width: 100%">
+					<h5>Footer</h5>
+				</footer>
+			</div>
+		</div>
+	</div>-->
+	
+	<!-- sidenav QUESTIONS (change colors) -->
+	<nav class="w3-white badge sideNav" style="width: 55px; min-height: 250px;
+		line-height: 100%; font-size: 34px; left: 0; margin: 0; position: fixed;
+		top: 50%; transform: translate(0, -50%); font-family: 'Kavoon', cursive;
+		max-height: 350px">
+		<span id="foo">QUIZZES</span>
+	</nav>
+
+	<a href="/Pitagora/allQuizzes/newQuiz" style="font-size: 18px;
+	font-family: 'Kavoon', cursive; float: right; margin-top: 80px">
+			<div class="newQuiz">New</div>
+			<script>
+				$('.newQuiz').textillate({
+					loop: true,
+					in: { effect: "pulse", shuffle: true },
+					out: { effect: "pulse", shuffle: true },
+					initialDelay: 1000
+				});
+			</script>
+	</a>
+
+</div>
+
+<script>
+	$('.appname').textillate({
+		loop: true,
+		in: { effect: "pulse", shuffle: true },
+		out: { effect: "pulse", shuffle: true }
+	});
+	$('#foo').html($('#foo').text().replace(/(.)/g,"$1<br />"));
+	$('#foo1').html($('#foo1').text().replace(/(.)/g,"$1<br />"));
+</script>
+
+<style type="text/css">
+	label {
+		color: #FF5722;
+	}
+
+	form {
+		font-family: 'Kavoon', cursive;
+	}
+</style>

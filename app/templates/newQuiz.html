@@ -1,0 +1,188 @@
+<div class="w3-container w3-deep-orange w3-animate-zoom" style="min-height: 100%;
+	padding-bottom: 30px; position: relative">
+
+	<nav class="navbar navbar-fixed-top w3-deep-orange">
+		<div>
+			<a class="navbar-brand w3-animate-opacity" href="/Pitagora/logged">
+				<img src="../favicon/favicon-32x32.png" style="border-radius: 32px;
+					float: left; margin-top: -6px">
+				<div class="appname" style="font-family: 'Kavoon', cursive;
+					font-size: 30px; float: left; padding-left: 3px">Pitagora</div>
+				<script>
+					$('.appname').textillate({
+						loop: true,
+						in: { effect: "pulse", shuffle: true },
+						out: { effect: "pulse", shuffle: true }
+					});
+				</script>
+			</a>
+			<style type="text/css">
+				.navbar-brand:hover {
+					color: white;
+					text-decoration: none;
+				}
+			</style>	
+		</div>
+
+		<div class="btn-group contentBtn">
+			<button type="button" class="w3-deep-orange btn dropdown-toggle w3-animate-opacity"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+				style="margin-top: 10px">
+					&#9776;
+			</button>
+			<div class="dropdown-menu">
+				<div class="dropdown-header" style="margin-left: -5px; line-height: 30px">
+					<img src="../img/profile.jpg" style="height: 30px; width:30px;
+					border-radius: 15px; float: left">
+					<span style="padding-left: 5px; font-size: 15px;">PROFILE</span>				
+				</div>
+				<a class="dropdown-item" href="#" style="color: grey; padding-left: 50px">
+					Username</a>
+				<hr>
+				<div class="dropdown-header" style="margin-left: -5px; line-height: 30px">
+					<img src="../img/questions.jpg" style="height: 30px; width:33px;
+					border-radius: 15px; float: left">
+					<span style="padding-left: 5px; font-size: 15px;">QUESTIONS</span>				
+				</div>
+				<a class="dropdown-item" href="/Pitagora/allQuestions" style="color: grey;
+				 padding-left: 50px">
+					All questions</a>
+					<br>
+				<a class="dropdown-item" href ng-click="show()"
+					style="color: grey; padding-left: 50px">
+					New question</a>
+				<hr>
+				<div class="dropdown-header" style="margin-left: -5px; line-height: 30px">
+					<img src="../img/quizzes.jpg" style="height: 30px; width:33px;
+					border-radius: 15px; float: left">
+					<span style="padding-left: 5px; font-size: 15px;">QUIZZES</span>				
+				</div>
+				<a class="dropdown-item" href="/Pitagora/allQuizzes" style="color: grey;
+				 padding-left: 50px">
+					All quizzes</a>
+					<br>
+			</div>
+		</div>
+
+	</nav>
+
+	<nav class="w3-white badge topNav" style="width: 100%; height: 55px;
+		line-height: 55px; font-size: 34px; font-family: 'Kavoon', cursive;
+		margin-top: 50px; margin-left: -16px; position: absolute">
+		<span>NEW QUIZ</span>
+	</nav>
+	
+	<!-- sidenav QUESTIONS (change colors) -->
+	<nav class="w3-white badge sideNav" style="width: 55px; min-height: 275px;
+		line-height: 100%; font-size: 34px; left: 0; margin: 0; position: fixed;
+		top: 50%; transform: translate(0, -50%); font-family: 'Kavoon', cursive;
+		max-height: 370px">
+		<span id="foo">NEW QUIZ</span>
+	</nav>
+
+	<form class="form-horizontal" role="form" name="quizForm" id="quizForm">
+		<div class="form-group">
+			<label  class="col-xs-12 col-sm-4 col-md-3 control-label" for="title">
+				*Quiz title
+			</label>
+			<div class="col-xs-12 col-sm-7">
+				<input type="text" class="form-control" id="title"
+					placeholder="Enter title..." ng-model="quiz.quizName"
+					autofocus required>
+				</input>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-12 col-sm-4 col-md-3 control-label" for="questions">
+				*Questions
+			</label>
+			<div class="col-xs-12 col-sm-7 pre-scrollable" style="max-height: 200px;">
+				<div class="w3-accordion" style="background-color: white;">
+					<div ng-repeat="question in questions" style="margin-bottom: 1px;">
+						<input type="checkbox" ng-model="quiz.quizQuestions[$index]"
+						ng-true-value="{{question}}" ng-false-value="{{undefined}}"/>
+						<button ng-click="toggleAccordion(question._id)" 
+							class="w3-btn-block w3-left-align question-well-quiz">
+							{{ question.question }}
+						</button>
+						<div id="{{ question._id }}" class="w3-accordion-content w3-container w3-light-grey">
+							<div class="row">
+								<div class="col-sm-3 text-right questionAttrs">Possible answers</div>
+								<div class="col-sm-6" style="font-family: 'Indie Flower', cursive;
+									font-size: 20px">{{ question.answers[0] }}</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3 text-right questionAttrs">Right answer</div>
+								<div class="col-sm-6" style="font-family: 'Indie Flower', cursive;
+									font-size: 20px">{{ question.rightAnswer }}</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3 text-right questionAttrs">Field</div>
+								<div class="col-sm-6" style="font-family: 'Indie Flower', cursive;
+									font-size: 20px">{{ question.fieldName }}</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-5 col-sm-3 text-right questionAttrs">Points</div>
+								<div class="col-xs-7 col-sm-6" style="font-family: 'Indie Flower', cursive;
+									font-size: 20px">{{ question.points }}</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-5 col-sm-3 text-right questionAttrs">Duration</div>
+								<div class="col-xs-7 col-sm-6" style="font-family: 'Indie Flower', cursive;
+									font-size: 20px">{{ question.duration }}</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-5 col-sm-3 text-right questionAttrs">Date</div>
+								<div class="col-xs-7 col-sm-6" style="font-family: 'Indie Flower', cursive;
+									font-size: 20px">{{ question.date }}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-12 col-sm-4 col-md-3 control-label" for="admin">
+				Administrator
+			</label>
+			<div class="col-xs-12 col-sm-7">
+				<input type="email" class="form-control" id="admin" 
+				ng-model="quiz.admin"/>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-4" style="float: right; font-family: 'Calibri';
+			font-size: 15px;">Fields with * are necessarily.</div>
+		<div class="form-group">
+			<div class="col-sm-offset-8 col-sm-4">
+				<button type="submit" class="btn btn-default"
+				ng-click="submitQuiz(quiz);"
+				ng-disabled="quizForm.$invalid">
+					<span style="color: #FF5722; font-family: 'Kavoon', cursive;">Done</span>
+				</button>
+			</div>
+		</div>
+	</form>
+
+	
+
+</div>
+
+<script>
+	$('.appname').textillate({
+		loop: true,
+		in: { effect: "pulse", shuffle: true },
+		out: { effect: "pulse", shuffle: true }
+	});
+	$('#foo').html($('#foo').text().replace(/(.)/g,"$1<br />"));
+	$('#foo1').html($('#foo1').text().replace(/(.)/g,"$1<br />"));
+</script>
+
+<style type="text/css">
+	label {
+		color: #FF5722;
+	}
+
+	form {
+		font-family: 'Kavoon', cursive;
+	}
+</style>

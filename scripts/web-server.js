@@ -42,7 +42,7 @@ apiRoutes.post('/saveuser', controller.saveUser);
 
 apiRoutes.post('/authenticate', function(req, res) {
 	User.findOne({
-		email : req.body.email
+		email : req.params.email
 	}, function(err, user) {
 		if (err) throw err;
 		if (!user) {
@@ -62,13 +62,15 @@ apiRoutes.post('/authenticate', function(req, res) {
 					});
 				}
 			}
-		
+		console.log(token);
 		});
 	});
 
 apiRoutes.post('/savequestion', controller.saveQuestion);
 apiRoutes.get('/questionList', controller.getAllQuestions);
+apiRoutes.post('/savequiz', controller.saveQuiz);
 apiRoutes.get('/usersList', controller.getAllUsers);
+apiRoutes.get('/usersList/:id', controller.getUserById);
 
 //kontrolna ruta za autentifikaciju
 apiRoutes.use(function(req, res, next) {
@@ -78,6 +80,7 @@ apiRoutes.use(function(req, res, next) {
 					|| req.headers['x-access-token'];
 
 		if (token) {
+			console.log(token);
 			jwt.verify(token, app.get('superSecret'), function(err, decoded) {
 				if (err) {
 					return res.json({ success: false, message: 'Failed to authenticate token.' });

@@ -2,6 +2,9 @@ var mongoose = require('mongoose')
 	Schema = mongoose.Schema;
 
 var quizzesSchema = new mongoose.Schema({
+	quizQuestions : {
+		type : Array , "default" : []
+	},
 	quizName : {
 		type : String,
 		required : true
@@ -10,10 +13,6 @@ var quizzesSchema = new mongoose.Schema({
 		type : Schema.Types.ObjectId,
 		ref : 'User'
 	},
-	quizQuestions : [{
-		type : Schema.Types.ObjectId,
-		ref : 'Question'
-	}],
 	date : {
 		type : Date,
 		default : Date.now

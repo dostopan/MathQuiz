@@ -1,6 +1,6 @@
 'use strict';
 
-var pitagoraApp = angular.module("pitagoraApp", ["ngRoute", "ngResource"])
+var pitagoraApp = angular.module("pitagoraApp", ["ngRoute", "ngResource", "angularModalService"])
 	.config(function($routeProvider, $locationProvider, $httpProvider){
 		$routeProvider.when("/Pitagora",
 			{
@@ -31,6 +31,12 @@ var pitagoraApp = angular.module("pitagoraApp", ["ngRoute", "ngResource"])
 				controller : "AllQuizzesController",
 				authenticate : true
 			});
+		$routeProvider.when("/Pitagora/allQuizzes/newQuiz",
+			{
+				templateUrl : "templates/newQuiz.html",
+				controller : "NewQuizController",
+				authenticate : true
+			});
 		$locationProvider.html5Mode(
     		{
         		enabled : true, 
@@ -40,9 +46,10 @@ var pitagoraApp = angular.module("pitagoraApp", ["ngRoute", "ngResource"])
 		$httpProvider.interceptors.push(function($q, $location, $window) {
 			return {
 				'request' : function(config) {
+					var token = $window.localStorage.getItem("token");
 					config.headers = config.headers || {};
-					if ($window.localStorage.token) {
-						config.headers['x-access-token'] = $window.localStorage.token;
+					if (token) {
+						config.headers['x-access-token'] = token;
 					}
 					return config;
 				},

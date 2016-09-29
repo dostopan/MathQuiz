@@ -3,6 +3,8 @@ require('./database/userSchema.js');
 var User = mongoose.model('User');
 require('./database/questionSchema.js');
 var Question = mongoose.model('Question');
+require('./database/quizSchema.js');
+var Quiz = mongoose.model('Quiz');
 
 module.exports.saveUser = function(req, res) {
 	var data = req.body; //poslao klijent
@@ -22,6 +24,7 @@ module.exports.saveUser = function(req, res) {
 module.exports.loginUser = function(req, res) {
 	var data = req.body;
 	var user = User.findOne({ email: data.email });
+	var token = $window.localStorage.getItem("token");
 	user.save(function(err) {
 		if (err) throw err;
 
@@ -39,6 +42,11 @@ module.exports.getAllUsers = function(req, res) {
 	res.setHeader('Content-Type', 'application/json');
 	res.send(userMap);
 	});
+}
+
+module.exports.getUserById = function(req, res){
+	res.setHeader('Content-Type', 'application/json');
+	res.send(tasks[req.params._id]);
 }
 
 module.exports.saveQuestion = function(req, res) {
@@ -64,5 +72,19 @@ module.exports.getAllQuestions = function(req, res) {
 	});
 	res.setHeader('Content-Type', 'application/json');
 	res.send(questionMap);
+	});
+}
+
+module.exports.saveQuiz = function(req, res) {
+	var data = req.body;
+	console.log(data);
+
+	var quiz = new Quiz(data);
+
+	quiz.save(function(err) {
+		if (err) throw err;
+
+		console.log('Quiz saved successfully!');
+		res.json({ success: true });
 	});
 }

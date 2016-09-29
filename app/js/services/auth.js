@@ -18,7 +18,7 @@ pitagoraApp.factory('auth',
 		}
 
 		function getClaimsFromToken() {
-			var token = localStorage.token;
+			var token = $window.localStorage.token;
 			console.log(token);
 			var user = {};
 			if (token !== 'undefined') {
@@ -47,6 +47,12 @@ pitagoraApp.factory('auth',
 			},
 			getAllQuestions: function() {
 				return $resource('/api/questionList').get();
+			},
+			getUserById: function(userId) {
+				return $resource('/api/usersList/:id', { _id : '@id' }).get({_id:userId});
+			},
+			saveQuiz: function(quiz) {
+				return $resource('/api/savequiz').save(quiz);
 			},
 			getTokenClaims: getClaimsFromToken
 		}

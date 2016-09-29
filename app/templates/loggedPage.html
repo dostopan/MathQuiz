@@ -1,4 +1,4 @@
-<div class="w3-deep-orange" style="min-height: 100%">
+<div class="w3-deep-orange w3-animate-bottom" style="min-height: 100%">
 	<ul class="w3-navbar">
 		<li><a href="javascript:void(0)" onmouseover="w3_open()">&#9776;</a></li>
 	</ul>
@@ -29,8 +29,8 @@
 					<span style="padding-left: 5px">QUESTIONS</span>
 				</h3>
 				<div style="padding-left: 55px">
-					<a href="/Pitagora/allQuestions">All questions</a>
-					<a href="#" data-toggle="modal" data-target="#newQuestionForm">New question</a>
+					<a ng-href="/Pitagora/allQuestions">All questions</a>
+					<a href ng-click="show()">New question</a>
 				</div>
 			</div>
 			<div class="w3-third nav-third">
@@ -40,8 +40,8 @@
 					<span style="padding-left: 5px">QUIZZES</span>
 				</h3>
 				<div style="padding-left: 55px">
-					<a href="#">All quizzes</a>
-					<a href="#">New quiz</a>
+					<a href="/Pitagora/allQuizzes">All quizzes</a>
+					<a href="/Pitagora/allQuizzes/newQuiz">New quiz</a>
 				</div>
 			</div>
 		</div>
@@ -50,174 +50,30 @@
 
 	<div class="w3-container">
 		<h1 class="text-center" style="font-size: 60px; padding-top: 30px">
-			Win the 
-				<span class="appname" style="font-family: 'Kavoon', cursive; font-size: 80px">
-					Pitagora
-				</span>
-				<script>
-					$('.appname').textillate({
-						loop: true,
-						in: { effect: "pulse", shuffle: true },
-						out: { effect: "pulse", shuffle: true }
-					});
-				</script>
-			battle!
-			<img src="/img/cut_pehar.jpg" class="tada">
+		<div class="row">
+			<div class="col-xs-12 col-md-7 win">
+				Win the 
+					<span class="appname" style="font-family: 'Kavoon', cursive; font-size: 80px">
+						Pitagora
+					</span>
+					<script>
+						$('.appname').textillate({
+							loop: true,
+							in: { effect: "pulse", shuffle: true },
+							out: { effect: "pulse", shuffle: true }
+						});
+					</script>
+				battle!
+			</div>
+			<div class="col-xs-12 col-md-5">
+				<img src="/img/cut_pehar.jpg" class="tada">
+			</div>
+		</div>
 		</h1>
 		<h3 style="padding-left: 5%; padding-top: 15px">
 			For more check out &#9776; on top-left corner of the page.
 		</h3>
 		
-	</div>
-</div>
-
-<div class="modal fade" id="newQuestionForm" tabindex="-1" role="dialog" 
-	aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<!-- Modal Header -->
-			<div class="modal-header w3-deep-orange" style="color: white; height: 80px">
-				<button type="button" class="close" data-dismiss="modal">
-					<span aria-hidden="true">&times;</span>
-					<span class="sr-only">Close</span>
-				</button>
-				<h4 class="modal-title" id="myModalLabel" style="margin: 0">
-					<p>
-						<span style="font-size: 40px; font-family: 'Kavoon', cursive;">
-							<span class="appname">Pitagora</span>
-							<script>
-								$('.appname').textillate({
-									loop: true,
-									in: { effect: "pulse", shuffle: true },
-									out: { effect: "pulse", shuffle: true }
-								});
-							</script>
-							<span style="float: right; font-size: 30px; font-family: 'Calibri';
-								padding-top: 7px">
-								New question
-							</span>
-						</span>
-						
-					</p>
-				</h4>
-			</div>
-
-			<!-- Modal Body -->
-			<div class="modal-body" style="margin-bottom: 15px">
-
-				<form class="form-horizontal" role="form" name="questionForm" id="questionForm">
-					<div class="form-group">
-						<label  class="col-sm-2 control-label" for="question">
-							*Question
-						</label>
-						<div class="col-sm-10">
-							<textarea type="text" class="form-control" id="question"
-								placeholder="Enter question..." ng-model="question.question"
-								rows="3" autofocus required>
-							</textarea>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="answers">
-							*Anwers
-						</label>
-						<div class="col-sm-10" data-tip="Separate your answers with comma.">
-							<input type="text" class="form-control" id="answers" 
-							placeholder="Anwers..." ng-model="question.answers" required />
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="rightAnswer">
-							*Right answer
-						</label>
-						<div class="col-sm-10" data-tip="Right answer have to be in the set of answer.">
-							<input type="text" class="form-control" id="rightAnswer" 
-							placeholder="Right answer" ng-model="question.rightAnswer" required
-							title="This is the text of the tooltip"/>
-						</div>
-						<div ng-show="answerMessage" style="color: red; font-size: 15px; 
-							font-family: 'Calibri'; float: right; margin-right: 15px">
-							Make sure that the right answer is in the set of answers.
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="fieldName">
-							Field name
-						</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="fieldName" 
-							placeholder="Field name..." ng-model="question.fieldName" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label class=" col-sm-offset-1 col-sm-2 control-label" for="points">
-							*Points
-						</label>
-						<div class="col-sm-3">
-							<input type="number" class="form-control" id="points" 
-							ng-model="question.points" min="0" required />
-						</div>
-						<label class="col-sm-2 control-label" for="duration">
-							*Duration
-						</label>
-						<div class="col-sm-3">
-							<input type="number" class="form-control" id="duration" 
-							ng-model="question.duration" min="0" required />
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label" for="admin">
-							Administrator
-						</label>
-						<div class="col-sm-9">
-							<input type="email" class="form-control" id="admin" 
-							ng-model="question.admin"/>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label">
-							Date
-						</label>
-
-						<!-- Date Time Picker -->
-						<div class="col-sm-9">							
-							<div class="input-group date" id="datetimepicker1">
-								<input type="text" class="form-control input-group date"
-									id="datetimepicker1" ng-model="question.date"/>
-								<span class="input-group-addon">
-									<span class="glyphicon glyphicon-calendar">
-									</span>
-								</span>
-							</div>
-						</div>
-						<script type="text/javascript">
-							$(function () {
-								$('#datetimepicker1').datetimepicker({
-									format: 'L'
-								});
-							});
-						</script>
-					</div>
-					<div style="float: right; font-family: 'Calibri';
-						font-size: 15px;">Fields with * are necessarily.</div>
-				</form>
-
-			</div>
-
-			<!-- Modal Footer -->
-			<div class="modal-footer w3-deep-orange">
-				<div class="form-group">
-					<div class="col-sm-offset-8 col-sm-4">
-						<button type="submit" class="btn btn-default"
-						ng-click="checkRightAnswer();submitQuestion(question)"
-						ng-disabled="questionForm.$invalid"
-						data-dismiss="modal" id="confBtn">
-							<span style="color: #FF5722; font-family: 'Kavoon', cursive;">Done</span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
 
@@ -232,10 +88,15 @@
 </style>
 
 <script>
-function w3_open() {
-	$("#myDropnav").slideDown("slow");
-}
-function w3_close() {
-	$("#myDropnav").slideUp("slow");
-}
+	$('.appname').textillate({
+		loop: true,
+		in: { effect: "pulse", shuffle: true },
+		out: { effect: "pulse", shuffle: true }
+	});
+	function w3_open() {
+		$("#myDropnav").slideDown("slow");
+	}
+	function w3_close() {
+		$("#myDropnav").slideUp("slow");
+	}
 </script>

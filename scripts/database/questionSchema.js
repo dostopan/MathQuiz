@@ -25,7 +25,7 @@ var questionsSchema = new mongoose.Schema({
 		ref : 'User'
 	},
 	date : {
-		type : Date,
+		type: Date,
 		default: Date.now
 	}
 });

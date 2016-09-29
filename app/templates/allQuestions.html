@@ -1,4 +1,5 @@
-<div class="w3-deep-orange w3-animate-right" style="min-height: 100%; position: relative">
+<div class="w3-container w3-deep-orange w3-animate-right" style="min-height: 100%;
+	padding-bottom: 30px; position: relative">
 
 	<nav class="navbar navbar-fixed-top w3-deep-orange">
 		<div>
@@ -23,13 +24,13 @@
 			</style>	
 		</div>
 
-		<div class="btn-group">
-			<button type="button" class="w3-deep-orange btn dropdown-toggle"
+		<div class="btn-group contentBtn">
+			<button type="button" class="w3-deep-orange btn dropdown-toggle	w3-animate-right"
 				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
 				style="margin-top: 10px">
 					&#9776;
 			</button>
-			<div class="dropdown-menu" style="padding-bottom: 15px">
+			<div class="dropdown-menu">
 				<div class="dropdown-header" style="margin-left: -5px; line-height: 30px">
 					<img src="../img/profile.jpg" style="height: 30px; width:30px;
 					border-radius: 15px; float: left">
@@ -47,15 +48,21 @@
 				 padding-left: 50px">
 					All quizzes</a>
 					<br>
-				<a class="dropdown-item" href="#" style="color: grey; padding-left: 50px">
+				<a class="dropdown-item" href="/Pitagora/allQuizzes/newQuiz" style="color: grey; padding-left: 50px">
 					New quiz</a>
 			</div>
 		</div>
 
 	</nav>
 
+	<nav class="w3-white badge topNav" style="width: 100%; 
+		height: 55px; line-height: 55px; font-size: 34px; position: absolute;
+		font-family: 'Kavoon', cursive; margin-top: 50px; margin-left: -16px">
+		<span>QUESTIONS</span>
+	</nav>
 
-	<div class="w3-accordion" style="width: 70%; margin: auto; padding-top: 80px">
+
+	<div class="w3-accordion w3-container questionList">
 		<div ng-repeat="question in questions" style="margin-bottom: 1px;">
 			<button ng-click="toggleAccordion(question._id)" 
 				class="w3-btn-block w3-left-align question-well">
@@ -87,13 +94,17 @@
 					<div class="col-xs-7 col-sm-6" style="font-family: 'Indie Flower', cursive;
 						font-size: 20px">{{ question.duration }}</div>
 				</div>
+				<div class="row">
+					<div class="col-xs-5 col-sm-3 text-right questionAttrs">Date</div>
+					<div class="col-xs-7 col-sm-6" style="font-family: 'Indie Flower', cursive;
+						font-size: 20px">{{ question.date }}</div>
+				</div>
 			</div>
 		</div>
 
-		<a data-toggle="modal" data-target="#newQuestionForm" 
-			style="font-size: 18px;	font-family: 'Kavoon', cursive; float: right;
+		<a style="font-size: 18px;	font-family: 'Kavoon', cursive; float: right;
 			margin-top: 10px">
-				<div class="newQuestion">New</div>
+				<div class="newQuestion" ng-click="show()">New</div>
 				<script>
 					$('.newQuestion').textillate({
 						loop: true,
@@ -102,19 +113,14 @@
 						initialDelay: 1000
 					});
 				</script>
-				<style type="text/css">
-					.newQuestion:hover {
-						font-size: 22px;
-					}
-				</style>
 		</a>
 
 	</div>
 
 	
 	<!-- sidenav QUESTIONS (change colors) -->
-	<nav class="w3-white badge questionSidenav" style="width: 55px; min-height: 320px;
-		line-height: 100%; font-size: 34px; right: 0; margin: 0; position: absolute;
+	<nav class="w3-white badge sideNav" style="width: 55px; min-height: 320px;
+		line-height: 100%; font-size: 34px; right: 0; margin: 0; position: fixed;
 		top: 50%; transform: translate(0, -50%); font-family: 'Kavoon', cursive;
 		max-height: 500px">
 		<span id="foo">QUESTIONS</span>
@@ -122,158 +128,12 @@
 
 </div>
 
-
-<div class="modal fade" id="newQuestionForm" tabindex="-1" role="dialog" 
-	aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<!-- Modal Header -->
-			<div class="modal-header w3-deep-orange" style="color: white; height: 80px">
-				<button type="button" class="close" data-dismiss="modal">
-					<span aria-hidden="true">&times;</span>
-					<span class="sr-only">Close</span>
-				</button>
-				<h4 class="modal-title" id="myModalLabel" style="margin: 0">
-					<p>
-						<span style="font-size: 40px; font-family: 'Kavoon', cursive;">
-							<span class="appname">Pitagora</span>
-							<script>
-								$('.appname').textillate({
-									loop: true,
-									in: { effect: "pulse", shuffle: true },
-									out: { effect: "pulse", shuffle: true }
-								});
-							</script>
-							<span style="float: right; font-size: 30px; font-family: 'Calibri';
-								padding-top: 7px">
-								New question
-							</span>
-						</span>
-						
-					</p>
-				</h4>
-			</div>
-
-			<!-- Modal Body -->
-			<div class="modal-body" style="margin-bottom: 15px">
-
-				<form class="form-horizontal" role="form" name="questionForm" id="questionForm">
-					<div class="form-group">
-						<label  class="col-sm-2 control-label" for="question">
-							*Question
-						</label>
-						<div class="col-sm-10">
-							<textarea type="text" class="form-control" id="question"
-								placeholder="Enter question..." ng-model="question.question"
-								rows="3" autofocus required>
-							</textarea>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="answers">
-							*Anwers
-						</label>
-						<div class="col-sm-10" data-tip="Separate your answers with comma.">
-							<input type="text" class="form-control" id="answers" 
-							placeholder="Anwers..." ng-model="question.answers" required />
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="rightAnswer">
-							*Right answer
-						</label>
-						<div class="col-sm-10" data-tip="Right answer have to be in the set of answer.">
-							<input type="text" class="form-control" id="rightAnswer" 
-							placeholder="Right answer" ng-model="question.rightAnswer" required
-							title="This is the text of the tooltip"/>
-						</div>
-						<div ng-show="answerMessage" style="color: red; font-size: 15px; 
-							font-family: 'Calibri'; float: right; margin-right: 15px">
-							Make sure that the right answer is in the set of answers.
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="fieldName">
-							Field name
-						</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="fieldName" 
-							placeholder="Field name..." ng-model="question.fieldName" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label class=" col-sm-offset-1 col-sm-2 control-label" for="points">
-							*Points
-						</label>
-						<div class="col-sm-3">
-							<input type="number" class="form-control" id="points" 
-							ng-model="question.points" min="0" required />
-						</div>
-						<label class="col-sm-2 control-label" for="duration">
-							*Duration
-						</label>
-						<div class="col-sm-3">
-							<input type="number" class="form-control" id="duration" 
-							ng-model="question.duration" min="0" required />
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label" for="admin">
-							Administrator
-						</label>
-						<div class="col-sm-9">
-							<input type="email" class="form-control" id="admin" 
-							ng-model="question.admin"/>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label">
-							Date
-						</label>
-
-						<!-- Date Time Picker -->
-						<div class="col-sm-9">							
-							<div class="input-group date" id="datetimepicker1">
-								<input type="text" class="form-control input-group date"
-									id="datetimepicker1" ng-model="question.date"/>
-								<span class="input-group-addon">
-									<span class="glyphicon glyphicon-calendar">
-									</span>
-								</span>
-							</div>
-						</div>
-						<script type="text/javascript">
-							$(function () {
-								$('#datetimepicker1').datetimepicker({
-									format: 'L'
-								});
-							});
-						</script>
-					</div>
-					<div style="float: right; font-family: 'Calibri';
-						font-size: 15px;">Fields with * are necessarily.</div>
-				</form>
-
-			</div>
-
-			<!-- Modal Footer -->
-			<div class="modal-footer w3-deep-orange">
-				<div class="form-group">
-					<div class="col-sm-offset-8 col-sm-4">
-						<button type="submit" class="btn btn-default"
-						ng-click="checkRightAnswer();submitQuestion(question)"
-						ng-disabled="questionForm.$invalid"
-						data-dismiss="modal" id="confBtn">
-							<span style="color: #FF5722; font-family: 'Kavoon', cursive;">Done</span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<script>
+<script type="text/javascript">
+	$('.appname').textillate({
+		loop: true,
+		in: { effect: "pulse", shuffle: true },
+		out: { effect: "pulse", shuffle: true }
+	});
 	$('#foo').html($('#foo').text().replace(/(.)/g,"$1<br />"));
 	$('#foo1').html($('#foo1').text().replace(/(.)/g,"$1<br />"));
 </script>

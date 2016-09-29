@@ -1,0 +1,120 @@
+<div class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			
+			<div class="modal-header w3-deep-orange" style="color: white; height: 80px">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel" style="margin: 0">
+					<p>
+						<span style="font-size: 40px; font-family: 'Kavoon', cursive;">
+							<span class="appname">Pitagora</span>
+							<span style="float: right; font-size: 30px; font-family: 'Calibri';
+								padding-top: 7px">
+								New question
+							</span>
+						</span>
+						
+					</p>
+				</h4>
+			</div>
+
+			
+			<div class="modal-body" style="margin-bottom: 15px">
+
+				<form class="form-horizontal" role="form" name="questionForm" id="questionForm">
+					<div class="form-group">
+						<label  class="col-sm-2 control-label" for="question">
+							*Question
+						</label>
+						<div class="col-sm-10">
+							<textarea type="text" class="form-control" id="question"
+								placeholder="Enter question..." ng-model="question.question"
+								rows="3" autofocus required>
+							</textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="answers">
+							*Anwers
+						</label>
+						<div class="col-sm-10" data-tip="Separate your answers with comma.">
+							<input type="text" class="form-control" id="answers" 
+							placeholder="Anwers..." ng-model="question.answers" required />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="rightAnswer">
+							*Right answer
+						</label>
+						<div class="col-sm-10" data-tip="Right answer have to be in the set of answer.">
+							<input type="text" class="form-control" id="rightAnswer" 
+							placeholder="Right answer" ng-model="question.rightAnswer" required
+							title="This is the text of the tooltip"
+							ng-change="checkRightAnswer();" ng-keypress="checkRightAnswer()"
+							ng-keydown="checkRightAnswer()"/>
+						</div>
+						<div ng-show="answerMessage" style="color: red; font-size: 15px; 
+							font-family: 'Calibri'; float: right; margin-right: 15px">
+							Make sure that the right answer is in the set of answers.
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="fieldName">
+							Field name
+						</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="fieldName" 
+							placeholder="Field name..." ng-model="question.fieldName" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class=" col-sm-offset-1 col-sm-2 control-label" for="points">
+							*Points
+						</label>
+						<div class="col-sm-3">
+							<input type="number" class="form-control" id="points" 
+							ng-model="question.points" min="0" required />
+						</div>
+						<label class="col-sm-2 control-label" for="duration">
+							*Duration
+						</label>
+						<div class="col-sm-3">
+							<input type="number" class="form-control" id="duration" 
+							ng-model="question.duration" min="0" required />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="admin">
+							Administrator
+						</label>
+						<div class="col-sm-9">
+							<input type="email" class="form-control" id="admin" 
+							ng-model="question.admin"/>
+						</div>
+					</div>
+					<div style="float: right; font-family: 'Calibri';
+						font-size: 15px;">Fields with * are necessarily.</div>
+				</form>
+
+			</div>
+
+			
+			<div class="modal-footer w3-deep-orange">
+				<div class="form-group">
+					<div class="col-sm-offset-8 col-sm-4">
+						<button type="submit" class="btn btn-default"
+						ng-click="submitQuestion(question);"
+						ng-disabled="questionForm.$invalid"
+						data-dismiss="modal" id="confBtn">
+							<span style="color: #FF5722; font-family: 'Kavoon', cursive;">Done</span>
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
